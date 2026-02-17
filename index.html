@@ -10,10 +10,10 @@
         body{
             background-image: url('https://wallpapercave.com/wp/wp2578580.jpg');
             background-size: cover;
-            background-repeat: no-repeat;
+            background-repeat: repeat;
             background-position: center;
             background-attachment: fixed;
-            background-color: rgb(60, 60, 60);
+            background-color: rgb(34, 34, 34);
         }
         img{
             height: 75px;
@@ -70,10 +70,10 @@
 
     <br>
 
-    <form action="#">
+    <form onsubmit="return budget()" action="#">
         <div style="display: flex; justify-content: center;">
             <div style="width: 500px;">
-                <input type="number" id="budg" class="form-control" placeholder="Enter here" onmouseleave="budget()">
+                <input type="number" id="budg" class="form-control" placeholder="Enter here" >
             </div>
         </div>
     </form>
@@ -83,16 +83,19 @@
     <div class="row justify-content-center">
         <div class="col-lg-4 col-10">
             <div class="justify-content-center">
-                <button style='width: 300px;' type="submit" class="btn btn-secondary custom-gradient" onclick="showBrand()">Brands & Discounts</button>
+                <button style='width: 300px;' type="button" class="btn btn-secondary custom-gradient" onclick="showBrand()">Brands & Discounts</button>
             </div>
-            <div class="" id="brand">
+            <div class="text-light" id="brand">
                 <!--Wrote code here, then copy pasted to function-->
+            </div>
+            <div class="text-light fs-5" id="finalPrice">
+                <!--For the final price itself, not sure how to combine and do things, but better basic and long than complicated and past the curriculum with suspicions of AI-->
             </div>
         </div>
 
         <div class="col-lg-4 col-10">
             <div class="justify-content-center">
-                <button style='width: 300px;' type="submit" class="btn btn-secondary custom-gradient" onclick="showLocation()">Store Locations</button>
+                <button style='width: 300px;' type="button" class="btn btn-secondary custom-gradient" onclick="showLocation()">Store Locations</button>
             </div>
             <div class="" id="location">
                 <!--Wrote code here, then copy pasted to function-->
@@ -102,16 +105,21 @@
 </div>
 
     <script>
+        let finalPrice;
+
         function budget(){
             var budg = document.getElementById("budg").value;
             var cut = Number(budg) / 5;
             var disc = Number(budg) - Number(cut);
-            var finalPrice = disc.toFixed(2);
+            finalPrice = disc.toFixed(2);
+            showBrand();
+            return false
         }
 
         function showBrand(){
             document.getElementById("brand").innerHTML = 
-            "<br><p style='color: white;'> Recommended Brands:</p><button style='width: 300px;' type='' class='btn btn-block btn-secondary custom-gradient'>Playstation</button><br><br><button style='width: 300px;' type='' class='btn btn-block btn-secondary custom-gradient'>Xbox</button><br><br><button style='width: 300px;' type='' class='btn btn-block btn-secondary custom-gradient'>Nintendo</button><br><br><kbd></kbd>";
+            "<br><p style='color: white;'> Recommended Brands:</p><button style='width: 300px;' type='' class='btn btn-block btn-secondary custom-gradient'>Playstation</button><br><br><button style='width: 300px;' type='' class='btn btn-block btn-secondary custom-gradient'>Xbox</button><br><br><button style='width: 300px;' type='' class='btn btn-block btn-secondary custom-gradient'>Nintendo</button><br><br><p style='color: white;'>You are eligible for:</p><kbd></kbd>";
+            document.getElementById("finalPrice").innerHTML = "₱ " + finalPrice
         }
         function showLocation(){
             document.getElementById("location").innerHTML = 
