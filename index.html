@@ -13,6 +13,7 @@
             background-repeat: no-repeat;
             background-position: center;
             background-attachment: fixed;
+            background-color: rgb(60, 60, 60);
         }
         img{
             height: 75px;
@@ -24,13 +25,13 @@
         .fs-8{
             font-size: 12px;
         }
-        .custom-gradient-navbar {
+        .custom-gradient{
             background-image: linear-gradient(to right, #000000, #606060);
         }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light shadow custom-gradient-navbar">
+<nav class="navbar navbar-expand-lg navbar-light shadow custom-gradient">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
@@ -78,17 +79,27 @@
     </form>
 </div>
 
-<div class="row justify-content-center">
-    <div class="col-lg-4 col-10">
-        <div class="justify-content-center"><button type="submit" class="btn btn-secondary" onclick="showBrand()">Brands & Discounts</button></div>
-    </div>
+<div class="text-center">
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-10">
+            <div class="justify-content-center">
+                <button style='width: 300px;' type="submit" class="btn btn-secondary custom-gradient" onclick="showBrand()">Brands & Discounts</button>
+            </div>
+            <div class="" id="brand">
+                <!--Wrote code here, then copy pasted to function-->
+            </div>
+        </div>
 
-    <div class="col-lg-4 col-10">
-        <div class="justify-content-center"><button type="submit" class="btn btn-secondary" onclick="showLocations()">Locations</button></div>
+        <div class="col-lg-4 col-10">
+            <div class="justify-content-center">
+                <button style='width: 300px;' type="submit" class="btn btn-secondary custom-gradient" onclick="showLocation()">Store Locations</button>
+            </div>
+            <div class="" id="location">
+                <!--Wrote code here, then copy pasted to function-->
+            </div>
+        </div>
     </div>
 </div>
-
-<div class="text-center d-grid" style="width: 350px;" id="brand"></div>
 
     <script>
         function budget(){
@@ -99,7 +110,12 @@
         }
 
         function showBrand(){
-            document.getElementById("brand").innerHTML = "<br><b style='color: white;'> Recommended Brands:<br>" + "<button type='' class='btn btn-block btn-secondary'>Playstation</button><br><br>" + "<button type='' class='btn btn-block btn-secondary'>Xbox</button><br><br>" + "<button type='' class='btn btn-block btn-secondary'>Nintendo</button><br><br>" + "<kbd>" + "</kbd>";
+            document.getElementById("brand").innerHTML = 
+            "<br><p style='color: white;'> Recommended Brands:</p><button style='width: 300px;' type='' class='btn btn-block btn-secondary custom-gradient'>Playstation</button><br><br><button style='width: 300px;' type='' class='btn btn-block btn-secondary custom-gradient'>Xbox</button><br><br><button style='width: 300px;' type='' class='btn btn-block btn-secondary custom-gradient'>Nintendo</button><br><br><kbd></kbd>";
+        }
+        function showLocation(){
+            document.getElementById("location").innerHTML = 
+            "<br><img style='width: 300px; height: auto; border-radius: 15px;' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi2mBlrQHDVdUGGZxJCiOH0ZtHO1_xluHlNA&s' alt='Game Line'><p style='color: white; font-size: 12px;'>Location: <br>SM City Fairview Main Building, Quirino Highway Corner Regalado Avenue, Pasong Putik Novaliches, Quezon City, 1118 Metro Manila</p><img style='width: 300px; height: 150px; border-radius: 15px;' src='https://thepodium.com.ph/wp-content/uploads/2019/07/2-1.jpg' alt='Datablitz'><br><p style='color: white; font-size: 12px;'>Location: <br>Cyberzone, SM City Fairview Main Building, Quirino Highway Corner Regalado Avenue, Pasong Putik Novaliches, Quezon City, 1118 Metro Manila</p><kbd></kbd>";
         }
     </script>
 </html>
