@@ -110,8 +110,7 @@
         function budget(){
             var budg = document.getElementById("budg").value;
             var cut = Number(budg) / 5;
-            var disc = Number(budg) - Number(cut);
-            finalPrice = disc.toFixed(2);
+            finalPrice = cut.toFixed(2);
             showBrand();
             return false
         }
